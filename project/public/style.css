@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  h1 {
+    color: #333;
+  }
+  nav a {
+    margin-right: 1rem;
+    text-decoration: none;
+    color: rgba(19, 19, 168, 0.708);
+  }
+  input, textarea {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 500px;
+  }
+  button {
+    padding: 0.5rem 1rem;
+  }

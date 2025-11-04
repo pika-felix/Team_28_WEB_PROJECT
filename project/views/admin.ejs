@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin View - Lost & Found</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Admin: All Reported Items</h1>
+  <ul>
+    <% if (items.length === 0) { %>
+      <li>No items to display.</li>
+    <% } else { %>
+      <% items.forEach(function(item, index) { %>
+        <li>
+          <strong><%= item.name %></strong><br>
+          Description: <%= item.description %><br>
+          Status: <%= item.status %><br>
+          Location: <%= item.location %><br>
+          Date: <%= item.date %><br>
+          Contact: <%= item.contact %><br>
+        </li>
+        <hr>
+      <% }); %>
+    <% } %>
+  </ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>

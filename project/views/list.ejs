@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lost & Found Items</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>All Reported Items</h1>
+  <ul>
+    <% if (items.length === 0) { %>
+      <li>No items reported yet.</li>
+    <% } else { %>
+      <% items.forEach(function(item) { %>
+        <li>
+          <strong><%= item.name %></strong><br>
+          Description: <%= item.description %><br>
+          Status: <%= item.status %><br>
+          Location: <%= item.location %><br>
+          Date: <%= item.date %><br>
+          Contact: <%= item.contact %>
+        </li>
+        <hr>
+      <% }); %>
+    <% } %>
+  </ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Airpods",
+    "description": "I lost in Mirae Hall",
+    "location": "room 310",
+    "contact": "010-1234-5678",
+    "status": "lost",
+    "date": "6/11/2025"
+  },
+  {
+    "name": "Women Wallet",
+    "description": "red color with bear keychain",
+    "location": "canteen",
+    "contact": "010-1222-3456",
+    "status": "lost",
+    "date": "6/11/2025"
+  },
+  {
+    "name": "Wallet",
+    "description": "red color with a keychain",
+    "location": "in front of canteen",
+    "contact": "010-3456-2333",
+    "status": "found",
+    "date": "6/11/2025"
+  }
+  
+]
