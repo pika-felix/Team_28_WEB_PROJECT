@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 6: Events and Event Handling - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 6: Events and Event Handling - Summary</h1>
+
+  <h2>1. What is an Event?</h2>
+  <ul>
+    <li>An <strong>event</strong> is any action that occurs in a web browser, triggered by users or the system.</li>
+    <li>Examples include clicking, key presses, mouse movement, form submissions, and page loads.</li>
+    <li>Events allow web pages to respond dynamically to user interactions.</li>
+  </ul>
+
+  <h2>2. Types of Events</h2>
+  <ul>
+    <li><strong>Document events:</strong> When a web page is loaded or closed.</li>
+    <li><strong>Mouse events:</strong> Clicking, hovering, moving, or scrolling the mouse.</li>
+    <li><strong>Keyboard events:</strong> Pressing or releasing a key.</li>
+    <li><strong>Form events:</strong> When users input or submit data in a form.</li>
+  </ul>
+
+  <h2>3. Event Handlers (Ways to Handle Events)</h2>
+  <ul>
+    <li><strong>Inline HTML event:</strong>
+      <br><code>&lt;button onclick="alert('Clicked!')"&gt;Click&lt;/button&gt;</code><br>
+      Simple but not recommended for larger projects.
+    </li>
+    <li><strong>Assigning events in JavaScript:</strong>
+      <br><code>button.onclick = function() { document.body.style.backgroundColor = 'green'; }</code>
+    </li>
+    <li><strong>Using addEventListener():</strong> (modern, preferred method)
+      <br><code>button.addEventListener("click", () =&gt; { document.body.style.backgroundColor = "green"; });</code>
+    </li>
+  </ul>
+
+  <h2>4. Example: Counting Text Characters</h2>
+  <ul>
+    <li>Counts characters entered in a text field when a button is clicked.</li>
+    <li>Example:
+      <br><code>
+      const button = document.querySelector("#bttn");<br>
+      button.addEventListener("click", () =&gt; {<br>
+      &nbsp;&nbsp;const word = document.querySelector("#word").value;<br>
+      &nbsp;&nbsp;document.querySelector("#result").innerText = word.length;<br>
+      });
+      </code>
+    </li>
+  </ul>
+
+  <h2>5. Example: Creating a Modal Box</h2>
+  <ul>
+    <li>A modal box is a pop-up window that focuses the user’s attention.</li>
+    <li>Displayed or hidden by adding or removing an <code>active</code> class.</li>
+    <li>Example:
+      <br><code>
+      open.addEventListener("click", () =&gt; modalBox.classList.add("active"));<br>
+      close.addEventListener("click", () =&gt; modalBox.classList.remove("active"));
+      </code>
+    </li>
+  </ul>
+
+  <h2>6. The event Object</h2>
+  <ul>
+    <li>Contains information about the event that occurred.</li>
+    <li>Common properties:
+      <ul>
+        <li><code>event.target</code> — the element that triggered the event</li>
+        <li><code>event.pageX</code>, <code>event.pageY</code> — mouse coordinates</li>
+        <li><code>event.key</code>, <code>event.code</code> — pressed key information</li>
+      </ul>
+    </li>
+    <li>Example:
+      <br><code>box.addEventListener("click", (e) =&gt; alert(`Clicked at: ${e.pageX}, ${e.pageY}`));</code>
+    </li>
+  </ul>
+
+  <h2>7. Example: Image Carousel</h2>
+  <ul>
+    <li>A simple slideshow that changes images using arrow buttons.</li>
+    <li>Example:
+      <br><code>
+      const pics = ["pic-1.jpg","pic-2.jpg","pic-3.jpg"];<br>
+      let i = 0;<br>
+      arrows.forEach(arrow =&gt; {<br>
+      &nbsp;&nbsp;arrow.addEventListener("click", (e) =&gt; {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if (e.target.id === "left") i--;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;else i++;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if (i &lt; 0) i = pics.length - 1;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;if (i &gt;= pics.length) i = 0;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;container.style.backgroundImage = `url(images/${pics[i]})`;<br>
+      &nbsp;&nbsp;});<br>
+      });
+      </code>
+    </li>
+  </ul>
+
+  <h2>8. Event Propagation</h2>
+  <ul>
+    <li><strong>Event Bubbling:</strong> The event moves upward from the target to its parent elements (default behavior).</li>
+    <li><strong>Event Capturing:</strong> The event travels downward from the root to the target (enabled with <code>useCapture = true</code>).</li>
+    <li>Example:
+      <br><code>element.addEventListener("click", e =&gt; console.log(e.target.tagName), true);</code>
+    </li>
+  </ul>
+
+  <h2>9. event.target vs. event.currentTarget</h2>
+  <ul>
+    <li><strong>event.target:</strong> The element that originally triggered the event.</li>
+    <li><strong>event.currentTarget:</strong> The element currently processing the event during bubbling or capturing.</li>
+  </ul>
+
+  <h2>10. Summary</h2>
+  <ul>
+    <li>Events connect user actions to JavaScript behavior, enabling interactive web pages.</li>
+    <li><code>addEventListener()</code> is the best practice for handling events.</li>
+    <li>The <code>event</code> object provides detailed data about user interactions.</li>
+    <li>Advanced examples include modal boxes, image carousels, and keyboard/mouse tracking.</li>
+    <li>Understanding event propagation helps control how events flow through nested elements.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+    <button class="home-button" onclick="window.location.href='Chapter7.html'">
+      Next: Chapter 7
+    </button>
+  </div>
+
+</body>
+</html>
