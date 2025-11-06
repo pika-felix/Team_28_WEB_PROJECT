@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 4: Functions and Scope - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 4: Functions and Scope - Summary</h1>
+
+  <h2>1. Importance of Functions</h2>
+  <ul>
+    <li>Functions are the “core of programming,” allowing complex problems to be divided into smaller, manageable parts.</li>
+    <li>They promote reusability — instead of repeating code, developers can call the same function when needed.</li>
+    <li>Example: A To-Do List app can use separate functions to add, complete, and delete tasks.</li>
+  </ul>
+
+  <h2>2. Declaring and Calling Functions</h2>
+  <ul>
+    <li>Functions are defined using the <code>function</code> keyword:
+      <br><code>function greet() { console.log("Hello!"); }</code></li>
+    <li>To execute a function, use parentheses: <code>greet();</code></li>
+    <li>Although functions can be placed anywhere in the code, they are typically written before being called.</li>
+  </ul>
+
+  <h2>3. Parameters, Arguments, and Return Values</h2>
+  <ul>
+    <li>Parameters allow functions to receive values from outside:
+      <br><code>function add(a, b) { return a + b; }</code></li>
+    <li>Arguments are the actual values passed when calling a function: <code>add(3, 5);</code></li>
+    <li>The <code>return</code> keyword sends a result back to where the function was called.</li>
+    <li>ES6 introduced default parameters:
+      <br><code>function multiply(a, b = 5) { return a * b; }</code></li>
+  </ul>
+
+  <h2>4. Debugging with Developer Tools</h2>
+  <ul>
+    <li>Debugging is the process of finding and fixing errors in code.</li>
+    <li>Use browser developer tools (F12 → Sources tab) to set breakpoints and inspect variable values step by step.</li>
+  </ul>
+
+  <h2>5. Understanding Variable Scope</h2>
+  <ul>
+    <li><strong>Scope</strong> determines where a variable can be accessed.</li>
+    <li><code>var</code> → function scope; <code>let</code> and <code>const</code> → block scope.</li>
+    <li><strong>Local variables</strong> are declared inside a function and cannot be accessed outside.</li>
+    <li><strong>Global variables</strong> are declared outside functions and can be accessed anywhere.</li>
+    <li><strong>Hoisting</strong>: JavaScript moves variable declarations to the top, which can lead to unexpected results.</li>
+  </ul>
+
+  <h2>6. Best Practices for Variables</h2>
+  <ul>
+    <li>Use <code>let</code> and <code>const</code> instead of <code>var</code> to avoid hoisting issues.</li>
+    <li>Minimize the use of global variables.</li>
+    <li>Use <code>const</code> for objects to prevent reassignment (properties can still change).</li>
+  </ul>
+
+  <h2>7. Function Expressions and IIFE</h2>
+  <ul>
+    <li>Functions can be stored in variables:
+      <br><code>let sum = function(a, b) { return a + b; };</code></li>
+    <li><strong>IIFE (Immediately Invoked Function Expression)</strong> runs immediately after being defined:
+      <br><code>(function() { alert("Hello!"); })();</code></li>
+  </ul>
+
+  <h2>8. Arrow Functions (ES6)</h2>
+  <ul>
+    <li>Provide a shorter syntax for function expressions:
+      <br><code>const hi = () => "Hello!";</code></li>
+    <li>If only one statement is inside, braces and <code>return</code> can be omitted.</li>
+  </ul>
+
+  <h2>9. Callback Functions</h2>
+  <ul>
+    <li>A function passed as an argument to another function.</li>
+    <li>Example:
+      <br><code>button.addEventListener("click", () => alert("Clicked!"));</code></li>
+    <li>Used in event handling and asynchronous programming.</li>
+  </ul>
+
+  <h2>10. Spread and Rest Syntax</h2>
+  <ul>
+    <li><strong>Spread ( ... )</strong> expands arrays or objects:
+      <br><code>console.log(...[1, 2, 3]);</code></li>
+    <li><strong>Rest ( ... )</strong> collects multiple arguments:
+      <br><code>function addAll(...nums) { return nums.reduce((a,b)=>a+b); }</code></li>
+  </ul>
+
+  <h2>11. Timer Functions</h2>
+  <ul>
+    <li>Allow delayed or repeated execution of code.</li>
+    <li><code>setInterval()</code> — runs repeatedly at intervals.</li>
+    <li><code>clearInterval()</code> — stops a running interval.</li>
+    <li><code>setTimeout()</code> — executes code after a specified time.</li>
+    <li>Example:
+      <br><code>setTimeout(() => console.log("Hello after 3s"), 3000);</code></li>
+  </ul>
+
+  <h2>12. Summary</h2>
+  <ul>
+    <li>Functions improve code structure, reusability, and readability.</li>
+    <li>Understanding scope helps prevent variable conflicts and errors.</li>
+    <li>Modern JavaScript features (arrow functions, spread/rest, etc.) make code more concise.</li>
+    <li>Timers and callbacks enable interactive, dynamic web applications.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+    <button class="home-button" onclick="window.location.href='Chapter5.html'">
+      Next: Chapter 5
+    </button>
+  </div>
+
+</body>
+</html>
