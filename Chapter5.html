@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 5: Basics of the DOM - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 5: Basics of the DOM - Summary</h1>
+
+  <h2>1. Understanding the DOM</h2>
+  <ul>
+    <li><strong>DOM (Document Object Model)</strong> is a structured representation of an HTML document using objects.</li>
+    <li>It allows JavaScript to access, modify, and control web page elements dynamically.</li>
+    <li>The DOM organizes HTML into a <strong>hierarchical tree structure</strong> called the <em>DOM tree</em>.</li>
+    <li>Each element, attribute, and text node can be accessed and changed using JavaScript.</li>
+  </ul>
+
+  <h2>2. The DOM Tree Structure</h2>
+  <ul>
+    <li>Represents the parent–child relationships between elements.</li>
+    <li>The <code>&lt;html&gt;</code> element is the <strong>root node</strong>, with <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> as children.</li>
+    <li>Each node in the tree can represent an element, its text, or its attributes.</li>
+  </ul>
+
+  <h2>3. Accessing Web Elements</h2>
+  <ul>
+    <li>Use <code>document.querySelector()</code> to select a single element.</li>
+    <li>Use <code>document.querySelectorAll()</code> to select multiple elements (returns a node list).</li>
+    <li>Examples:
+      <ul>
+        <li><code>document.querySelector("h1")</code></li>
+        <li><code>document.querySelector("#profile")</code></li>
+        <li><code>document.querySelectorAll(".user")</code></li>
+      </ul>
+    </li>
+    <li>Older methods: <code>getElementById()</code>, <code>getElementsByClassName()</code>, <code>getElementsByTagName()</code>.</li>
+  </ul>
+
+  <h2>4. Getting and Changing Content</h2>
+  <ul>
+    <li>To get or modify an element’s content:
+      <ul>
+        <li><code>innerText</code> — gets/sets visible text only.</li>
+        <li><code>innerHTML</code> — includes HTML tags.</li>
+        <li><code>textContent</code> — retrieves all text including hidden or extra spaces.</li>
+      </ul>
+    </li>
+    <li>Example:
+      <br><code>document.querySelector("#desc").innerText;</code>
+    </li>
+  </ul>
+
+  <h2>5. Handling Click Events</h2>
+  <ul>
+    <li>You can make pages interactive by responding to user clicks.</li>
+    <li>Example:
+      <br><code>const title = document.querySelector("#title");<br>
+      title.onclick = () =&gt; title.innerText = "Profile";</code>
+    </li>
+    <li>Images can also be changed dynamically:
+      <br><code>pfImage.onclick = () =&gt; pfImage.src = "images/pf2.png";</code>
+    </li>
+  </ul>
+
+  <h2>6. Modifying Styles with JavaScript</h2>
+  <ul>
+    <li>Access and change CSS properties using <code>element.style</code>.</li>
+    <li>Examples:
+      <br><code>title.style.color = "blue";</code><br>
+      <code>title.style.backgroundColor = "yellow";</code>
+    </li>
+    <li>Use camelCase for multi-word CSS properties (e.g., <code>fontSize</code> instead of <code>font-size</code>).</li>
+  </ul>
+
+  <h2>7. Working with Class Lists</h2>
+  <ul>
+    <li><code>classList</code> helps manage CSS classes applied to an element.</li>
+    <li>Common methods:
+      <ul>
+        <li><code>add()</code> — add a class</li>
+        <li><code>remove()</code> — remove a class</li>
+        <li><code>contains()</code> — check if a class exists</li>
+        <li><code>toggle()</code> — add/remove a class automatically</li>
+      </ul>
+    </li>
+    <li>Example:
+      <br><code>title.onclick = () =&gt; title.classList.toggle("clicked");</code>
+    </li>
+  </ul>
+
+  <h2>8. Accessing and Handling Forms</h2>
+  <ul>
+    <li>Form elements can be accessed using <code>id</code>, <code>name</code>, or <code>document.forms</code>.</li>
+    <li>Examples:
+      <ul>
+        <li><code>document.querySelector("#order-name").value;</code></li>
+        <li><code>document.order.product.value;</code></li>
+        <li><code>document.forms[0].elements[4];</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>9. Working with Select Elements</h2>
+  <ul>
+    <li>To access a dropdown list:
+      <br><code>const selectMenu = document.querySelector("#major");</code>
+    </li>
+    <li>Get the selected option:
+      <br><code>selectMenu.options[selectMenu.selectedIndex].innerText;</code>
+    </li>
+    <li>Example:
+      <br><code>alert(`[${selectedText}] selected.`);</code>
+    </li>
+  </ul>
+
+  <h2>10. Radio Buttons and Checkboxes</h2>
+  <ul>
+    <li>Grouped using the same <code>name</code> attribute and accessed as a list.</li>
+    <li>To get the selected radio button:
+      <br><code>document.querySelector("input[name='subject']:checked");</code>
+    </li>
+    <li>To get selected checkboxes:
+      <br><code>document.querySelectorAll("input[name='mailing']:checked");</code>
+    </li>
+    <li>Use the <code>checked</code> property to check whether a box is selected.</li>
+  </ul>
+
+  <h2>11. Summary</h2>
+  <ul>
+    <li>The DOM provides a structured way to interact with web documents.</li>
+    <li>JavaScript can access, edit, and style elements through the DOM tree.</li>
+    <li>Event handling and class manipulation enable dynamic web behavior.</li>
+    <li>Form, select, and input handling are key for user interaction.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+    <button class="home-button" onclick="window.location.href='Chapter6.html'">
+      Next: Chapter 6
+    </button>
+  </div>
+
+</body>
+</html>
