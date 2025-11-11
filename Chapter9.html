@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 9: Creating JavaScript Objects - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 9: Creating JavaScript Objects - Summary</h1>
+
+  <h2>1. Understanding Objects</h2>
+  <ul>
+    <li>An <strong>object</strong> stores and processes related data and actions.</li>
+    <li>JavaScript objects group <strong>properties</strong> (data) and <strong>methods</strong> (functions).</li>
+    <li>There are two main types:
+      <ul>
+        <li><strong>Built-in objects</strong>: Provided by JavaScript, like <code>Math</code> and <code>Date</code>.</li>
+        <li><strong>User-defined objects</strong>: Created by programmers as needed.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>2. Creating Objects</h2>
+  <ul>
+    <li>Create objects using <code>{}</code>:
+      <br><code>let book1 = { title: "Web Standard", pages: 648 };</code>
+    </li>
+    <li>Access properties with <code>object.property</code> or <code>object["property"]</code>.</li>
+    <li>Add, modify, or delete properties:
+      <br><code>book1.author = "Koh Kyung-hee";</code><br>
+      <code>delete book1.pages;</code>
+    </li>
+  </ul>
+
+  <h2>3. Nested Objects</h2>
+  <ul>
+    <li>Objects can contain other objects:
+      <br><code>let student = { name: "Doremi", score: { history: 85, science: 94 } };</code>
+    </li>
+    <li>Use <code>this</code> to refer to the current object in methods.</li>
+  </ul>
+
+  <h2>4. Object Methods</h2>
+  <ul>
+    <li>Functions defined inside objects are called <strong>methods</strong>.</li>
+    <li>Example:
+      <br><code>let book = { title: "JS Basics", buy() { console.log("Purchased"); } };</code>
+    </li>
+    <li><code>this</code> refers to the current object:
+      <br><code>this.done ? "Finished" : "Reading";</code>
+    </li>
+  </ul>
+
+  <h2>5. Copying Objects</h2>
+  <ul>
+    <li>Primitive values copy by value.</li>
+    <li>Objects copy by reference, meaning both variables point to the same object.</li>
+  </ul>
+
+  <h2>6. Constructor Functions</h2>
+  <ul>
+    <li>Use constructor functions to create multiple objects:
+      <br><code>function Book(title, pages) { this.title = title; this.pages = pages; }</code>
+    </li>
+    <li>Create objects using <code>new</code>:
+      <br><code>let book1 = new Book("Web Standard", 648);</code>
+    </li>
+  </ul>
+
+  <h2>7. Using Classes (ES6)</h2>
+  <ul>
+    <li>ES6 introduced the <strong>class</strong> keyword for cleaner syntax:
+      <br><code>class Book { constructor(t, p) { this.title = t; this.pages = p; } }</code>
+    </li>
+    <li>Methods are added directly inside the class.</li>
+  </ul>
+
+  <h2>8. Accessing Keys and Values</h2>
+  <ul>
+    <li>Loop through object properties with:
+      <br><code>for (key in obj) { console.log(key, obj[key]); }</code>
+    </li>
+    <li>Or use:
+      <br><code>Object.keys(obj)</code>, <code>Object.values(obj)</code>, <code>Object.entries(obj)</code>
+    </li>
+  </ul>
+
+  <h2>9. Prototypes and Inheritance</h2>
+  <ul>
+    <li>Objects inherit features through <strong>prototypes</strong>.</li>
+    <li>Define shared methods using the constructor’s prototype:
+      <br><code>Book.prototype.finish = function() { console.log("Done"); };</code>
+    </li>
+    <li>All objects created with the same constructor share this method.</li>
+  </ul>
+
+  <h2>10. Inheritance (Prototype & Class)</h2>
+  <ul>
+    <li><strong>Prototype inheritance:</strong>  
+      <br><code>Object.setPrototypeOf(Textbook.prototype, Book.prototype);</code>
+    </li>
+    <li><strong>Class inheritance:</strong>  
+      <br><code>class Textbook extends Book { constructor(t, p, m) { super(t, p); this.major = m; } }</code>
+    </li>
+  </ul>
+
+  <h2>11. Summary</h2>
+  <ul>
+    <li>Objects organize related data and behavior into one unit.</li>
+    <li>Methods define what objects can do.</li>
+    <li>Constructors and classes create object templates.</li>
+    <li>Prototypes and inheritance support code reuse and scalability.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">Go Back to Home Page</button>
+    <button class="home-button" onclick="window.location.href='Chapter10.html'">Next: Chapter 10</button>
+  </div>
+
+</body>
+</html>

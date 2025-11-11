@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 7: Using the DOM - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 7: Using the DOM - Summary</h1>
+
+  <h2>1. The DOM Tree and Node Types</h2>
+  <ul>
+    <li>The <strong>DOM (Document Object Model)</strong> represents an HTML document as a tree of nodes.</li>
+    <li>The root of the tree is the <code>&lt;html&gt;</code> element, and every element, text, and attribute is a node.</li>
+    <li>Node types include:
+      <ul>
+        <li><strong>Element nodes:</strong> HTML tags like <code>&lt;p&gt;</code> or <code>&lt;img&gt;</code></li>
+        <li><strong>Text nodes:</strong> The text inside elements</li>
+        <li><strong>Attribute nodes:</strong> Attributes such as <code>src</code> or <code>id</code></li>
+        <li><strong>Comment nodes:</strong> Represent <code>&lt;!-- comments --&gt;</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>2. Node Lists</h2>
+  <ul>
+    <li><code>document.querySelectorAll()</code> selects multiple elements and returns a <strong>NodeList</strong>.</li>
+    <li>Example:
+      <br><code>document.querySelectorAll("p")[1];</code> — selects the second <code>&lt;p&gt;</code> element.</li>
+  </ul>
+
+  <h2>3. Adding New Nodes</h2>
+  <ul>
+    <li>You can create and add new elements dynamically to a webpage.</li>
+    <li>Steps:
+      <ol>
+        <li><code>createTextNode()</code> — create a text node.</li>
+        <li><code>createElement()</code> — create an element.</li>
+        <li><code>appendChild()</code> — attach the text to the element.</li>
+        <li><code>appendChild()</code> again — add the new element to the document.</li>
+      </ol>
+    </li>
+    <li>Example:
+      <br><code>
+      let newP = document.createElement("p");<br>
+      let textNode = document.createTextNode("Typescript");<br>
+      newP.appendChild(textNode);<br>
+      document.body.appendChild(newP);
+      </code>
+    </li>
+  </ul>
+
+  <h2>4. Example: Shopping Cart</h2>
+  <ul>
+    <li>When a button is clicked, the book title is added to the order list.</li>
+    <li>Example:
+      <br><code>
+      orderButton.addEventListener("click", () =&gt; {<br>
+      &nbsp;&nbsp;let newP = document.createElement("p");<br>
+      &nbsp;&nbsp;let textNode = document.createTextNode(title.innerText);<br>
+      &nbsp;&nbsp;newP.appendChild(textNode);<br>
+      &nbsp;&nbsp;orderInfo.appendChild(newP);<br>
+      });
+      </code>
+    </li>
+    <li>Style new elements using <code>style</code> properties, e.g. <code>newP.style.color = "blue";</code></li>
+  </ul>
+
+  <h2>5. Adding Nodes with Attributes</h2>
+  <ul>
+    <li>To create elements like <code>&lt;img&gt;</code> that need attributes:
+      <br><code>
+      let newImg = document.createElement("img");<br>
+      newImg.setAttribute("src", "images/wall.jpg");<br>
+      document.body.appendChild(newImg);
+      </code>
+    </li>
+  </ul>
+
+  <h2>6. Inserting Before Existing Nodes</h2>
+  <ul>
+    <li>Use <code>insertBefore(newNode, referenceNode)</code> to add elements before others.</li>
+    <li>Example:
+      <br><code>
+      let tsNode = document.createElement("p");<br>
+      let tsText = document.createTextNode("Typescript");<br>
+      tsNode.appendChild(tsText);<br>
+      let basisNode = document.querySelectorAll("p")[0];<br>
+      document.body.insertBefore(tsNode, basisNode);
+      </code>
+    </li>
+  </ul>
+
+  <h2>7. Deleting Nodes</h2>
+  <ul>
+    <li><code>remove()</code> — directly removes an element.<br>
+      Example: <code>document.querySelector("h1").remove();</code>
+    </li>
+    <li><code>removeChild()</code> — removes a specific child from a parent.<br>
+      Example: <code>this.parentNode.removeChild(this);</code></li>
+  </ul>
+
+  <h2>8. Example: Click to Delete</h2>
+  <ul>
+    <li>Clicking an item removes it from the list:
+      <br><code>
+      const items = document.querySelectorAll("li");<br>
+      for (let item of items) {<br>
+      &nbsp;&nbsp;item.addEventListener("click", function() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;this.parentNode.removeChild(this);<br>
+      &nbsp;&nbsp;});<br>
+      }
+      </code>
+    </li>
+    <li>In <code>function(){}</code>, <code>this</code> refers to the clicked element.</li>
+  </ul>
+
+  <h2>9. Example: Delete Buttons</h2>
+  <ul>
+    <li>Each list item has a delete button (<code>&times;</code>) to remove itself.</li>
+    <li>Example:
+      <br><code>
+      const buttons = document.querySelectorAll("p &gt; span");<br>
+      for (let button of buttons) {<br>
+      &nbsp;&nbsp;button.addEventListener("click", function() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;this.parentNode.parentNode.removeChild(this.parentNode);<br>
+      &nbsp;&nbsp;});<br>
+      }
+      </code>
+    </li>
+  </ul>
+
+  <h2>10. Project: My Book List App</h2>
+  <ul>
+    <li>A small app to add and delete books dynamically.</li>
+    <li>Example:
+      <br><code>
+      save.addEventListener("click", (e) =&gt; {<br>
+      &nbsp;&nbsp;e.preventDefault();<br>
+      &nbsp;&nbsp;const item = document.createElement("li");<br>
+      &nbsp;&nbsp;item.innerHTML = `${title.value} - ${author.value} &lt;span id="delButton"&gt;Delete&lt;/span&gt;`;<br>
+      &nbsp;&nbsp;bookList.appendChild(item);<br>
+      &nbsp;&nbsp;title.value = ""; author.value = "";<br>
+      });
+      </code>
+    </li>
+  </ul>
+
+  <h2>11. Summary</h2>
+  <ul>
+    <li>The DOM allows JavaScript to dynamically add, insert, and remove HTML elements.</li>
+    <li>Core methods: <code>createElement()</code>, <code>appendChild()</code>, <code>insertBefore()</code>, <code>remove()</code>.</li>
+    <li>The <code>this</code> keyword inside functions refers to the element that triggered the event.</li>
+    <li>These methods form the foundation for interactive web applications like shopping carts and book lists.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="h

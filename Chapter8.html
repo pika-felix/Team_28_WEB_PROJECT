@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 8: Built-in Objects - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 8: Built-in Objects - Summary</h1>
+
+  <h2>1. What Are Built-in Objects?</h2>
+  <ul>
+    <li>Built-in objects are predefined JavaScript objects available for direct use.</li>
+    <li>When a web page loads, the <strong>window object</strong> is created first, followed by other browser-related objects.</li>
+    <li>These objects are part of the <strong>HTML Web API</strong>, used to manage browser behavior and web page interaction.</li>
+  </ul>
+
+  <h2>2. Window Object</h2>
+  <ul>
+    <li>The <strong>window</strong> object is the top-level object of the browser.</li>
+    <li>It controls the browser window and includes all other objects.</li>
+    <li>Methods:
+      <ul>
+        <li><code>alert()</code>, <code>prompt()</code>, <code>confirm()</code> — show dialogs.</li>
+        <li><code>open()</code>, <code>close()</code> — open or close browser windows.</li>
+      </ul>
+    </li>
+    <li>Example:
+      <br><code>window.open("notice.html", "popup", "width=600,height=500,left=300,top=200");</code>
+    </li>
+  </ul>
+
+  <h2>3. Screen Object</h2>
+  <ul>
+    <li>Provides information about the user's screen size and available area.</li>
+    <li>Example: Centering a popup window
+      <br><code>
+      let left = (screen.availWidth - popWidth) / 2;<br>
+      let top = (screen.availHeight - popHeight) / 2;<br>
+      window.open("notice.html", "event", `width=600,height=500,left=${left},top=${top}`);
+      </code>
+    </li>
+  </ul>
+
+  <h2>4. History Object</h2>
+  <ul>
+    <li>Contains the user's browsing history.</li>
+    <li>Used for navigation, such as moving forward or backward.</li>
+    <li>Example:
+      <br><code>history.back(); // Go to previous page</code><br>
+      <code>history.forward(); // Go to next page</code>
+    </li>
+  </ul>
+
+  <h2>5. Location Object</h2>
+  <ul>
+    <li>Stores information about the current page URL, including protocol, hostname, and path.</li>
+    <li>Example:
+      <br><code>location.href = "https://www.example.com"; // Redirects to a new page</code>
+    </li>
+  </ul>
+
+  <h2>6. Date Object</h2>
+  <ul>
+    <li>Used for managing and displaying dates and times.</li>
+    <li>Creating Date objects:
+      <ul>
+        <li><code>new Date()</code> — current date/time</li>
+        <li><code>new Date("2025-02-25")</code> — specific date</li>
+        <li><code>new Date("2025-02-25T18:00:00")</code> — date and time</li>
+      </ul>
+    </li>
+    <li>Main methods:
+      <ul>
+        <li>Get: <code>getFullYear()</code>, <code>getMonth()</code>, <code>getDate()</code>, <code>getDay()</code></li>
+        <li>Set: <code>setFullYear()</code>, <code>setMonth()</code>, <code>setDate()</code></li>
+        <li>Display: <code>toLocaleString()</code>, <code>toDateString()</code>, <code>toTimeString()</code></li>
+      </ul>
+    </li>
+  </ul>
+
+  <h2>7. Example: Counting Days Passed</h2>
+  <ul>
+    <li>Calculates the number of days between two dates.</li>
+    <li>Example:
+      <br><code>
+      const firstDay = new Date("2021-07-01");<br>
+      const today = new Date();<br>
+      const passed = today.getTime() - firstDay.getTime();<br>
+      const days = Math.round(passed / (1000 * 60 * 60 * 24));<br>
+      document.querySelector("#result").innerText = days;
+      </code>
+    </li>
+  </ul>
+
+  <h2>8. Example: Digital Clock</h2>
+  <ul>
+    <li>Displays current time on the webpage and updates every second.</li>
+    <li>Example:
+      <br><code>
+      function clock() {<br>
+      &nbsp;&nbsp;let now = new Date();<br>
+      &nbsp;&nbsp;let hrs = now.getHours();<br>
+      &nbsp;&nbsp;let mins = now.getMinutes();<br>
+      &nbsp;&nbsp;let secs = now.getSeconds();<br>
+      &nbsp;&nbsp;let period = hrs &gt;= 12 ? "PM" : "AM";<br>
+      &nbsp;&nbsp;if (hrs &gt; 12) hrs -= 12;<br>
+      &nbsp;&nbsp;if (hrs === 0) hrs = 12;<br>
+      &nbsp;&nbsp;hrs = hrs &lt; 10 ? "0" + hrs : hrs;<br>
+      &nbsp;&nbsp;mins = mins &lt; 10 ? "0" + mins : mins;<br>
+      &nbsp;&nbsp;secs = secs &lt; 10 ? "0" + secs : secs;<br>
+      &nbsp;&nbsp;document.querySelector("#clock").innerText = `${period} ${hrs}:${mins}:${secs}`;<br>
+      }<br>
+      setInterval(clock, 1000);
+      </code>
+    </li>
+  </ul>
+
+  <h2>9. Math Object</h2>
+  <ul>
+    <li>Provides mathematical constants and functions.</li>
+    <li>Examples:
+      <ul>
+        <li><code>Math.PI</code> — π constant</li>
+        <li><code>Math.round()</code>, <code>Math.ceil()</code>, <code>Math.floor()</code> — rounding numbers</li>
+        <li><code>Math.random()</code> — random number between 0 and 1</li>
+      </ul>
+    </li>
+    <li>Example: Random number between 1–100<br>
+      <code>Math.floor(Math.random() * 100 + 1);</code>
+    </li>
+  </ul>
+
+  <h2>10. Example: Random Background Image</h2>
+  <ul>
+    <li>Changes the background image randomly when the page loads.</li>
+    <li>Example:
+      <br><code>
+      function changeBg() {<br>
+      &nbsp;&nbsp;const bgCount = 5;<br>
+      &nbsp;&nbsp;let randomNum = Math.floor(Math.random() * bgCount) + 1;<br>
+      &nbsp;&nbsp;document.body.style.backgroundImage = `url
