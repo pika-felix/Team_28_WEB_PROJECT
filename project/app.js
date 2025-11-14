@@ -1,4 +1,3 @@
-// demo.js
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -9,7 +8,7 @@ const PORT = 3000;
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '/public'))); // for style.css or images
+app.use(express.static(path.join(__dirname, '/public')));
 
 // View engine setup
 app.set('view engine', 'ejs');
@@ -26,7 +25,7 @@ try {
   console.error('Error loading items.json:', err);
 }
 
-// ===== ROUTES =====
+// ROUTES
 
 //  LOGIN PAGE (main page)
 app.get('/', (req, res) => {
@@ -35,12 +34,12 @@ app.get('/', (req, res) => {
 
 // REPORT LOST ITEM PAGE
 app.get('/report-lost', (req, res) => {
-  res.render('report-lost');  // views/report-lost.ejs
+  res.render('report-lost');
 });
 
 // REPORT FOUND ITEM PAGE
 app.get('/report-found', (req, res) => {
-  res.render('report-found'); // views/report-found.ejs
+  res.render('report-found');
 });
 
 
@@ -55,7 +54,7 @@ app.get('/admin_dashboard', (req, res) => {
   res.render('admin_dashboard', { items });
 });
 
-//  Example: Add item (future feature)
+// Add item (future feature:stil testing)
 app.post('/add-item', (req, res) => {
   const { name, description, location, contact, status, date } = req.body;
   const newItem = { name, description, location, contact, status, date };
@@ -64,7 +63,7 @@ app.post('/add-item', (req, res) => {
   res.redirect('/admin_dashboard');
 });
 
-//  Example: Delete item 
+//  Example: Delete item(future feature:stil testing)
 app.post('/delete/:index', (req, res) => {
   const { index } = req.params;
   if (items[index]) {
