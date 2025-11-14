@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Welcome, User!</h1>
+  <h2>All Reported Items</h2>
+
+  <ul>
+    <% if (items.length === 0) { %>
+      <li>No items reported yet.</li>
+    <% } else { %>
+      <% items.forEach(function(item) { %>
+        <li>
+          <strong><%= item.name %></strong><br>
+          Description: <%= item.description %><br>
+          Status: <%= item.status %><br>
+          Location: <%= item.location %><br>
+          Date: <%= item.date %><br>
+          Contact: <%= item.contact %>
+        </li>
+        <hr>
+      <% }); %>
+    <% } %>
+  </ul>
+
+  <a href="/">Logout</a>
+</body>
+</html>

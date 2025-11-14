@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lost & Found Portal – Login</title>
+
+  <style>
+    :root {
+      --primary-color: #070a6c;
+      --accent-color: #5348e6;
+      --bg-color: #f9f9f9;
+      --form-bg: #ffffff;
+      --text-color: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+    a { color: var(--primary-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      background: var(--primary-color);
+      padding: 1rem 2rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+    }
+    .nav__links li { margin-left: 1.5rem; }
+    .nav__links a { color: #fff; }
+
+    .login-container {
+      width: 90%;
+      max-width: 400px;
+      margin: 3rem auto;
+      background: var(--form-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .login-container h1 {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .login-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .tab {
+      flex: 1;
+      padding: 0.75rem;
+      cursor: pointer;
+      background: var(--bg-color);
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    .tab.active {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .tab:not(:last-child) {
+      border-right: none;
+    }
+
+    .login-form { display: none; }
+    .login-form.active { display: block; }
+    .login-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    .login-form label {
+      text-align: left;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .login-form input {
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #a1278f;
+      border-radius: 4px;
+    }
+    .login-form button {
+      padding: 0.9rem;
+      border: none;
+      background: var(--accent-color);
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .login-form button:hover {
+      background: var(--primary-color);
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      .login-container { padding: 1rem; margin: 2rem auto; }
+      .nav__links { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="nav__logo">Welcome to Campus Lost & Found</a>
+      <ul class="nav__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/items">View Items</a></li>
+        <li><a href="/report-lost">Report Lost Item</a></li>
+        <li><a href="/report-found">Report Found Item</a></li>
+        <li><a href="/admin">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="login-container">
+    <h1>Login to Your account</h1>
+
+    <div class="login-tabs">
+      <button id="userTab" class="tab active">Students Login</button>
+      <button id="adminTab" class="tab">Admin Login</button>
+    </div>
+
+    <!-- USER LOGIN -->
+    <div id="userLoginForm" class="login-form active">
+      <form id="userForm">
+        <label for="userUsername">Username</label>
+        <input type="text" id="userUsername" name="username" required placeholder="Enter your username">
+
+        <label for="userPassword">Password</label>
+        <input type="password" id="userPassword" name="password" required placeholder="Enter your password">
+
+        <button type="submit">Login as User</button>
+      </form>
+    </div>
+
+    <!-- ADMIN LOGIN -->
+    <div id="adminLoginForm" class="login-form">
+      <form id="adminForm">
+        <label for="adminUsername">Username</label>
+        <input type="text" id="adminUsername" name="username" required placeholder="Enter admin username">
+
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" name="password" required placeholder="Enter admin password">
+
+        <button type="submit">Login as Admin</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Campus Lost & Found – Helping students reconnect with their lost items.</p>
+  </footer>
+
+  <script>
+    // Toggle tabs
+    const userTab = document.getElementById('userTab');
+    const adminTab = document.getElementById('adminTab');
+    const userFormDiv = document.getElementById('userLoginForm');
+    const adminFormDiv = document.getElementById('adminLoginForm');
+
+    userTab.addEventListener('click', () => {
+      userFormDiv.classList.add('active');
+      adminFormDiv.classList.remove('active');
+      userTab.classList.add('active');
+      adminTab.classList.remove('active');
+    });
+    adminTab.addEventListener('click', () => {
+      adminFormDiv.classList.add('active');
+      userFormDiv.classList.remove('active');
+      adminTab.classList.add('active');
+      userTab.classList.remove('active');
+    });
+
+    // Demo login logic
+    document.getElementById('adminForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = document.getElementById('adminUsername').value.trim();
+      const p = document.getElementById('adminPassword').value.trim();
+      if (u === 'admin' && p === 'admin') {
+        alert('Welcome, Admin!');
+        window.location.href = '/admin_dashbord';
+      } else {
+        alert('Invalid admin credentials!');
+      }
+    });
+
+    document.getElementById('userForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const u = document.getElementById('userUsername').value.trim();
+      const p = document.getElementById('userPassword').value.trim();
+      if (u === 'user' && p === 'user') {
+        alert('Welcome, User!');
+        window.location.href = '/user_dashboard';
+      } else {
+        alert('Invalid user credentials!');
+      }
+    });
+  </script>
+</body>
+</html>
