@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 10: Strings and Arrays - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 10: Strings and Arrays - Summary</h1>
+
+  <h2>1. Understanding Strings</h2>
+  <ul>
+    <li>Strings are primitive data types, but JavaScript temporarily converts them into String objects when using properties or methods (autoboxing).</li>
+    <li>The <strong>length</strong> property shows how many characters a string has.</li>
+    <li>Characters can be accessed using <code>charAt()</code> or bracket notation (<code>str[0]</code>).</li>
+    <li>Useful methods include <code>indexOf()</code>, <code>includes()</code>, <code>startsWith()</code>, <code>endsWith()</code>, <code>trim()</code>, and case-changing methods.</li>
+    <li>Substring extraction uses <code>slice()</code> or <code>substring()</code>.</li>
+    <li><code>split()</code> converts a string into an array.</li>
+  </ul>
+
+  <h2>2. Using Regular Expressions</h2>
+  <ul>
+    <li>Regular expressions describe text patterns and help search or validate strings.</li>
+    <li><code>test()</code> checks if a pattern exists; <code>match()</code> extracts matching parts.</li>
+    <li>Patterns can include digits, letters, repetitions, anchors (<code>^</code> and <code>$</code>), and flags like <code>i</code> for case-insensitive matching.</li>
+    <li>Examples include matching student IDs, phone numbers, or specific words.</li>
+  </ul>
+
+  <h2>3. Converting Strings and Arrays</h2>
+  <ul>
+    <li>Strings are hard to modify directly, so they are often converted to arrays.</li>
+    <li>Conversion methods include <code>split()</code>, <code>[...str]</code> (spread syntax), and <code>Array.from()</code>.</li>
+    <li>Arrays can be converted back to strings using <code>join()</code>.</li>
+  </ul>
+
+  <h2>4. Introduction to Arrays</h2>
+  <ul>
+    <li>Arrays can be created using literals (<code>[]</code>), constructors (<code>new Array()</code>), or assigned values directly.</li>
+    <li>Elements can be accessed and modified using indexes.</li>
+    <li>Empty slots can exist if indexes are skipped.</li>
+  </ul>
+
+  <h2>5. Looping Through Arrays</h2>
+  <ul>
+    <li><code>for</code> loops allow index-based iteration.</li>
+    <li><code>forEach()</code> runs a callback for every element and can use value, index, and the array itself as parameters.</li>
+    <li><code>forEach()</code> cannot use <code>break</code> or <code>continue</code>.</li>
+  </ul>
+
+  <h2>6. Combining and Copying Arrays</h2>
+  <ul>
+    <li><code>concat()</code> merges arrays or values into a new array.</li>
+    <li>The <strong>spread operator</strong> (<code>...</code>) is a modern, more flexible way to combine arrays.</li>
+  </ul>
+
+  <h2>7. Sorting, Reversing, and Slicing Arrays</h2>
+  <ul>
+    <li><code>reverse()</code> flips the order of elements in place.</li>
+    <li><code>sort()</code> organizes elements but sorts numbers incorrectly unless given a compare function (<code>(a, b) => a - b</code>).</li>
+    <li><code>slice()</code> creates a new copy of a portion of the array without modifying the original.</li>
+  </ul>
+
+  <h2>8. Adding and Removing Elements</h2>
+  <ul>
+    <li><code>push()</code> adds to the end; <code>pop()</code> removes from the end.</li>
+    <li><code>unshift()</code> adds to the beginning; <code>shift()</code> removes from the beginning.</li>
+    <li><code>splice()</code> removes or replaces elements at specific positions and modifies the original array.</li>
+  </ul>
+
+  <h2>9. Overall Summary</h2>
+  <ul>
+    <li>Strings and arrays are essential data structures used for text and list processing.</li>
+    <li>Strings rely on methods for searching, slicing, and formatting.</li>
+    <li>Arrays offer powerful tools for sorting, looping, and modifying data.</li>
+    <li>Understanding conversions between strings and arrays is important for modern JavaScript development.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+    <button class="home-button" onclick="window.location.href='Chapter11.html'">
+      Chapter 11
+    </button>
+  </div>
+
+</body>
+</html>
