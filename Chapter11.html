@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 11: Arrays and Objects - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 11: Arrays and Objects - Summary</h1>
+
+  <h2>1. Default Parameters</h2>
+  <ul>
+    <li>Functions can assign default values to parameters when no argument is provided.</li>
+    <li>Useful for avoiding errors and simplifying function calls.</li>
+  </ul>
+
+  <h2>2. Spread and Rest Operators</h2>
+  <ul>
+    <li><strong>Rest operator (...)</strong> collects multiple arguments into an array.</li>
+    <li><strong>Spread operator (...)</strong> expands arrays into individual elements.</li>
+    <li>Used for copying arrays, merging arrays, and handling flexible parameters.</li>
+  </ul>
+
+  <h2>3. Object Properties</h2>
+  <ul>
+    <li>Bracket notation is required for keys with spaces or special characters.</li>
+    <li>Computed property names allow dynamic keys using expressions.</li>
+    <li>Shorthand properties simplify object creation when variable names match keys.</li>
+  </ul>
+
+  <h2>4. Symbols</h2>
+  <ul>
+    <li>Symbols are unique and create hidden, private-like object properties.</li>
+    <li>Symbol keys must always use bracket notation.</li>
+    <li><code>Symbol.for()</code> creates or retrieves global shared symbols.</li>
+  </ul>
+
+  <h2>5. Destructuring Assignment</h2>
+  <ul>
+    <li>Extracts values from arrays and objects into variables easily.</li>
+    <li>Supports renaming, default values, and nested destructuring.</li>
+    <li>Useful for cleaner and more readable code.</li>
+  </ul>
+
+  <h2>6. Array Methods: map, filter, reduce</h2>
+  <ul>
+    <li><strong>map()</strong> transforms each element and returns a new array.</li>
+    <li><strong>filter()</strong> returns elements that meet a condition.</li>
+    <li><strong>reduce()</strong> processes all elements to produce a single value.</li>
+  </ul>
+
+  <h2>7. Map Object</h2>
+  <ul>
+    <li>Stores key-value pairs where keys can be any type (objects included).</li>
+    <li>Preserves insertion order.</li>
+    <li>Provides methods like <code>set()</code>, <code>get()</code>, <code>has()</code>, and <code>clear()</code>.</li>
+  </ul>
+
+  <h2>8. Set Object</h2>
+  <ul>
+    <li>Stores unique values without duplicates.</li>
+    <li>Useful for removing duplicates or performing membership checks.</li>
+  </ul>
+
+  <h2>9. Iterable and Iterator Concepts</h2>
+  <ul>
+    <li>Arrays, strings, maps, and sets are iterables.</li>
+    <li>They support <code>for...of</code>, spread syntax, and destructuring.</li>
+    <li>Use <code>Symbol.iterator</code> to create custom iterators.</li>
+  </ul>
+
+  <h2>10. Generator Functions</h2>
+  <ul>
+    <li>Defined using <code>function*</code> and produce values using <code>yield</code>.</li>
+    <li>Generators pause and resume execution.</li>
+    <li>Useful for custom iteration and asynchronous workflows.</li>
+  </ul>
+
+  <h2>11. Summary</h2>
+  <ul>
+    <li>Arrays and objects are essential for storing and managing data.</li>
+    <li>Modern ES6 features (spread, rest, destructuring, symbols) improve flexibility and readability.</li>
+    <li>Map and Set offer more powerful alternatives to plain objects and arrays.</li>
+    <li>Generators and iterators provide advanced control over data flow.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+    <button class="home-button" onclick="window.location.href='Chapter12.html'">
+      Chapter 12
+    </button>
+  </div>
+
+</body>
+</html>
