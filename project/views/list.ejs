@@ -3,9 +3,61 @@
 <head>
   <title>Lost & Found Items</title>
   <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Floating notification style */
+    #notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4BB543;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      opacity: 1;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #notification.hide {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    /* Pagination style */
+    .pagination {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .pagination a {
+      margin: 0 5px;
+      text-decoration: none;
+      color: #070a6c;
+    }
+    .pagination span.current {
+      margin: 0 5px;
+      font-weight: bold;
+      color: #5348e6;
+    }
+  </style>
 </head>
 <body>
   <h1>All Reported Items</h1>
+
+  <!-- NOTIFICATION -->
+  <% if (typeof msg !== 'undefined') { %>
+    <div id="notification"><%= msg %></div>
+    <script>
+      setTimeout(() => {
+        const notif = document.getElementById('notification');
+        if (notif) {
+          notif.classList.add('hide');
+          setTimeout(() => notif.remove(), 500);
+        }
+      }, 5000);
+    </script>
+  <% } %>
+
   <ul>
     <% if (items.length === 0) { %>
       <li>No items reported yet.</li>
@@ -17,12 +69,42 @@
           Status: <%= item.status %><br>
           Location: <%= item.location %><br>
           Date: <%= item.date %><br>
-          Contact: <%= item.contact %>
+          Contact: <%= item.contact %><br><br>
+
+          <!-- DELETE BUTTON -->
+          <form action="/delete-item/<%= item.id %>?page=<%= page %>" method="POST"
+            onsubmit="return confirm('Are you sure you want to delete this item?');">
+            <button type="submit"
+              style="
+                background:#d62828;
+                color:white;
+                padding:6px 12px;
+                border:none;
+                border-radius:4px;
+                cursor:pointer;
+              ">
+              Delete Item
+            </button>
+          </form>
         </li>
         <hr>
       <% }); %>
     <% } %>
   </ul>
-  <a href="/">Back to Home</a>
+
+  <!-- PAGINATION -->
+  <% if (totalPages > 1) { %>
+    <div class="pagination">
+      <% for (let i = 1; i <= totalPages; i++) { %>
+        <% if (i === page) { %>
+          <span class="current"><%= i %></span>
+        <% } else { %>
+          <a href="/view-items?page=<%= i %>"><%= i %></a>
+        <% } %>
+      <% } %>
+    </div>
+  <% } %>
+
+  <a href="/">Back to Log In</a>
 </body>
 </html>
