@@ -6,13 +6,16 @@
 </head>
 <body>
   <h1>Report a Found Item</h1>
-  <form action="/report-found" method="POST">
+  <form action="/add-item" method="POST">
+    <!-- Hidden field to mark this as a found item -->
+    <input type="hidden" name="status" value="found" />
+
     <input name="name" placeholder="Item Name" required />
     <textarea name="description" placeholder="Description" required></textarea>
     <input name="location" placeholder="Found Location" required />
     <input name="contact" placeholder="Your Contact Info" required />
     <button type="submit">Submit</button>
   </form>
-  <a href="/">Back to Home</a>
+  <a href="/user_dashboard">Back to Home</a>
 </body>
 </html>
