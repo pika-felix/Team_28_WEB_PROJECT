@@ -23,6 +23,14 @@
     a { color: var(--primary-color); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* 🔒 Disabled navigation style */
+    .nav__links a.disabled {
+      pointer-events: none;
+      opacity: 0.4;
+      cursor: not-allowed;
+      text-decoration: none !important;
+    }
+
     .site-header {
       background: var(--primary-color);
       padding: 1rem 2rem;
@@ -130,11 +138,11 @@
     <nav class="nav">
       <a href="/" class="nav__logo">Welcome to Campus Lost & Found</a>
       <ul class="nav__links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/items">View Items</a></li>
-        <li><a href="/report-lost">Report Lost Item</a></li>
-        <li><a href="/report-found">Report Found Item</a></li>
-        <li><a href="/admin">Admin</a></li>
+        <li><a href="/" class="disabled" id="navHome">Log Out</a></li>
+        <li><a href="/items" class="disabled" id="navItems">View Items</a></li>
+        <li><a href="/report-lost" class="disabled" id="navLost">Report Lost Item</a></li>
+        <li><a href="/report-found" class="disabled" id="navFound">Report Found Item</a></li>
+        <li><a href="/admin" class="disabled" id="navAdmin">Admin</a></li>
       </ul>
     </nav>
   </header>
@@ -191,6 +199,7 @@
       userTab.classList.add('active');
       adminTab.classList.remove('active');
     });
+
     adminTab.addEventListener('click', () => {
       adminFormDiv.classList.add('active');
       userFormDiv.classList.remove('active');
@@ -198,25 +207,35 @@
       userTab.classList.remove('active');
     });
 
-    // Demo login logic
+    // 🔓 Enable navigation after successful login
+    function enableNavLinks() {
+      document.querySelectorAll('.nav__links a').forEach(a => {
+        a.classList.remove('disabled');
+      });
+    }
+
+    // Admin Login
     document.getElementById('adminForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const u = document.getElementById('adminUsername').value.trim();
       const p = document.getElementById('adminPassword').value.trim();
       if (u === 'admin' && p === 'admin') {
         alert('Welcome, Admin!');
-        window.location.href = '/admin_dashbord';
+        enableNavLinks();  // ← Enable navigation
+        window.location.href = '/admin_dashboard';
       } else {
         alert('Invalid admin credentials!');
       }
     });
 
+    // User Login
     document.getElementById('userForm').addEventListener('submit', (e) => {
       e.preventDefault();
       const u = document.getElementById('userUsername').value.trim();
       const p = document.getElementById('userPassword').value.trim();
       if (u === 'user' && p === 'user') {
         alert('Welcome, User!');
+        enableNavLinks();  // ← Enable navigation
         window.location.href = '/user_dashboard';
       } else {
         alert('Invalid user credentials!');
