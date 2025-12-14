@@ -1,31 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>User Dashboard</title>
-  <link rel="stylesheet" href="/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Dashboard – Campus Lost & Found</title>
+
+  <style>
+    :root {
+      --primary-color: #070a6c;
+      --accent-color: #5348e6;
+      --bg-color: #f9f9f9;
+      --form-bg: #ffffff;
+      --text-color: #333333;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+    a { color: var(--primary-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .site-header {
+      background: var(--primary-color);
+      padding: 1rem 2rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav__links {
+      list-style: none;
+      display: flex;
+    }
+    .nav__links li { margin-left: 1.5rem; }
+    .nav__links a { color: #fff; }
+
+    /* 🔒 Disable Admin Button */
+    .disabled-link {
+      pointer-events: none;
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .dashboard-container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: var(--form-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .dashboard-container h1 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .dashboard-container h2 {
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+      text-align: center;
+    }
+
+    /* Flex container for items */
+    .items-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .item-box {
+      flex: 1 1 calc(50% - 1rem); /* 2 items per row */
+      min-width: 250px;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fdfdfd;
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .item-box { flex: 1 1 100%; } /* stack on smaller screens */
+    }
+
+    @media (max-width: 480px) {
+      .nav__links { display: none; }
+      .dashboard-container { padding: 1rem; }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Welcome, User!</h1>
-  <h2>All Reported Items</h2>
 
-  <ul>
-    <% if (items.length === 0) { %>
-      <li>No items reported yet.</li>
-    <% } else { %>
-      <% items.forEach(function(item) { %>
-        <li>
-          <strong><%= item.name %></strong><br>
-          Description: <%= item.description %><br>
-          Status: <%= item.status %><br>
-          Location: <%= item.location %><br>
-          Date: <%= item.date %><br>
-          Contact: <%= item.contact %>
-        </li>
-        <hr>
-      <% }); %>
-    <% } %>
-  </ul>
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="/" class="nav__logo">Campus Lost & Found</a>
+      <ul class="nav__links">
+        <li><a href="/">Log Out</a></li>
+        <li><a href="/items">View Items</a></li>
+        <li><a href="/report-lost">Report Lost Item</a></li>
+        <li><a href="/report-found">Report Found Item</a></li>
 
-  <a href="/">Logout</a>
+        <!--ADMIN BUTTON DISABLED -->
+        <li><a href="/admin" class="disabled-link">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Dashboard Content -->
+  <main class="dashboard-container">
+    <h1>Welcome, User!</h1>
+    <h2>Recently Reported Items</h2>
+
+    <div class="items-grid">
+      <% if (items.length === 0) { %>
+        <p>No items reported yet.</p>
+      <% } else { %>
+        <% 
+          const lastItems = items.slice(-4).reverse(); // last 3 items, newest first
+          lastItems.forEach(function(item) { 
+        %>
+          <div class="item-box">
+            <strong><%= item.name %></strong><br>
+            Description: <%= item.description %><br>
+            Status: <%= item.status %><br>
+            Location: <%= item.location %><br>
+            Date: <%= item.date %><br>
+            Contact: <%= item.contact %>
+          </div>
+        <% }); %>
+      <% } %>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© Campus Lost & Found – Helping students reconnect with their lost items.</p>
+  </footer>
+
 </body>
 </html>
