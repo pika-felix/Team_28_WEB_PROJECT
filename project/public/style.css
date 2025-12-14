@@ -1,23 +1,113 @@
+/* ===== Base Layout ===== */
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
     padding: 2rem;
-    background-color: #f4f4f4;
-  }
-  h1 {
-    color: #333;
-  }
-  nav a {
-    margin-right: 1rem;
+    background-color: #f6f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* ===== Headings ===== */
+h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #111827;
+}
+
+/* ===== Navigation ===== */
+nav {
+    margin-bottom: 2rem;
+}
+
+nav a {
+    margin-right: 1.25rem;
     text-decoration: none;
-    color: rgba(19, 19, 168, 0.708);
-  }
-  input, textarea {
+    color: #374151;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #070a6c;
+    text-decoration: underline;
+}
+
+/* ===== Form Container ===== */
+.form-container {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 720px;
+    border: 1px solid #e5e7eb;
+}
+
+/* ===== Inputs & Textareas ===== */
+input,
+textarea {
     display: block;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
     width: 100%;
-    max-width: 500px;
-  }
-  button {
-    padding: 0.5rem 1rem;
-  }
+    max-width: 520px;
+    padding: 0.6rem 0.7rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: #fff;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #070a6c;
+}
+
+/* ===== Buttons (Neat & Professional) ===== */
+button {
+    padding: 0.55rem 1.4rem;
+    background-color: #070a6c;
+    color: #ffffff;
+    border: 1px solid #070a6c;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #06085a;
+}
+
+/* ===== Secondary Button ===== */
+.back-home-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.55rem 1.4rem;
+    background-color: #ffffff;
+    color: #070a6c;
+    border: 1px solid #070a6c;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+}
+
+.back-home-btn:hover {
+    background-color: #f0f2ff;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 1.25rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    button,
+    .back-home-btn {
+        width: 100%;
+    }
+}
