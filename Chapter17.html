@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 17: Using Web APIs - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0 5px;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 17: Using Web APIs - Summary</h1>
+
+  <h2>1. What Is an API?</h2>
+  <ul>
+    <li>An API (Application Programming Interface) allows different programs to communicate and share data.</li>
+    <li>APIs let developers use external features without building them from scratch.</li>
+    <li>Examples include Canvas API for graphics and Weather APIs for real-time data.</li>
+  </ul>
+
+  <h2>2. Public (Open) APIs</h2>
+  <ul>
+    <li>Public APIs are available for anyone to use.</li>
+    <li>They allow integration of services such as maps, authentication, and public data.</li>
+    <li>Many government and portal services provide open APIs.</li>
+  </ul>
+
+  <h2>3. Web APIs</h2>
+  <ul>
+    <li>Web APIs are built-in browser APIs that work with JavaScript.</li>
+    <li>They extend JavaScript’s capabilities without extra libraries.</li>
+    <li>MDN Web Docs provides documentation and examples.</li>
+  </ul>
+
+  <h2>4. Web Storage API</h2>
+  <ul>
+    <li>Web Storage stores data in the browser more securely than cookies.</li>
+    <li>Data is stored as JSON strings.</li>
+    <li>It is not automatically sent to the server.</li>
+  </ul>
+
+  <h2>5. Cookies vs Web Storage</h2>
+  <ul>
+    <li><strong>Cookies</strong>: small, sent to servers automatically, limited size, privacy risks.</li>
+    <li><strong>Web Storage</strong>: larger capacity, more secure, better performance.</li>
+  </ul>
+
+  <h2>6. Types of Web Storage</h2>
+  <ul>
+    <li><strong>Session Storage</strong>: data exists while the browser tab is open.</li>
+    <li><strong>Local Storage</strong>: data remains even after the browser is closed.</li>
+  </ul>
+
+  <h2>7. Storage Methods</h2>
+  <ul>
+    <li><code>setItem()</code> – save data</li>
+    <li><code>getItem()</code> – retrieve data</li>
+    <li><code>removeItem()</code> – delete specific data</li>
+    <li><code>clear()</code> – remove all data</li>
+  </ul>
+
+  <h2>8. Using Local Storage</h2>
+  <ul>
+    <li>Objects and arrays must be converted using <code>JSON.stringify()</code>.</li>
+    <li>Stored data is restored using <code>JSON.parse()</code>.</li>
+    <li>Common uses include saving user preferences and to-do lists.</li>
+  </ul>
+
+  <h2>9. To-Do List with Web Storage</h2>
+  <ul>
+    <li>Users can add, delete, and complete tasks.</li>
+    <li>Tasks remain saved after page refresh.</li>
+    <li>Uses DOM manipulation, events, and localStorage.</li>
+  </ul>
+
+  <h2>10. Geolocation API</h2>
+  <ul>
+    <li>Provides the user’s location (latitude and longitude).</li>
+    <li>User permission is required.</li>
+    <li>Works only in secure (HTTPS) environments.</li>
+  </ul>
+
+  <h2>11. Key Geolocation Methods</h2>
+  <ul>
+    <li><code>getCurrentPosition()</code> – gets current location.</li>
+    <li><code>watchPosition()</code> – tracks location changes.</li>
+    <li><code>clearWatch()</code> – stops tracking.</li>
+  </ul>
+
+  <h2>12. Summary</h2>
+  <ul>
+    <li>Web APIs expand what JavaScript can do in the browser.</li>
+    <li>Web Storage enables persistent client-side data.</li>
+    <li>Geolocation supports location-based services with user consent.</li>
+    <li>Web APIs are essential for modern interactive web applications.</li>
+  </ul>
+
+  <div class="button-container">
+    <a class="home-button" href="index.html">Home</a>
+    <a class="home-button" href="Chapter16.html">Previous</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 15: Graphic Elements with Canvas - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 15: Handling Graphic Elements with Canvas - Summary</h1>
+
+  <h2>1. Styling Shapes and Colors</h2>
+  <ul>
+    <li>Canvas uses <code>fillStyle</code> to set fill colors and <code>strokeStyle</code> to set line colors.</li>
+    <li>Colors can be defined using names, hex values, RGB/RGBA, or HSL/HSLA formats.</li>
+    <li>Transparency is controlled with <code>globalAlpha</code> or RGBA color values.</li>
+  </ul>
+
+  <h2>2. Gradients</h2>
+  <ul>
+    <li>Linear gradients change colors in a straight direction using <code>createLinearGradient()</code>.</li>
+    <li>Radial gradients spread colors outward from a center using <code>createRadialGradient()</code>.</li>
+    <li>Multiple colors are added with <code>addColorStop()</code>.</li>
+  </ul>
+
+  <h2>3. Pattern Fills</h2>
+  <ul>
+    <li>Images can be used as repeating patterns with <code>createPattern()</code>.</li>
+    <li>Pattern options include repeat, repeat-x, repeat-y, and no-repeat.</li>
+  </ul>
+
+  <h2>4. Shadow Effects</h2>
+  <ul>
+    <li>Shadows are applied using <code>shadowColor</code>, <code>shadowBlur</code>, <code>shadowOffsetX</code>, and <code>shadowOffsetY</code>.</li>
+    <li>Shadow settings must be defined before drawing the shape.</li>
+  </ul>
+
+  <h2>5. Line Styles</h2>
+  <ul>
+    <li>Line thickness is controlled with <code>lineWidth</code>.</li>
+    <li>Line endings and joins are styled using <code>lineCap</code> and <code>lineJoin</code>.</li>
+    <li><code>miterLimit</code> adjusts sharp corner behavior.</li>
+  </ul>
+
+  <h2>6. Interactive Drawing with Mouse Events</h2>
+  <ul>
+    <li>Mouse events such as <code>mousedown</code>, <code>mousemove</code>, and <code>mouseup</code> enable drawing on the canvas.</li>
+    <li>Users can change colors and line width dynamically.</li>
+    <li>The canvas can be cleared using <code>clearRect()</code>.</li>
+  </ul>
+
+  <h2>7. Transforming Graphics</h2>
+  <ul>
+    <li>Transformations affect the canvas context, not individual shapes.</li>
+    <li><code>translate()</code>, <code>rotate()</code>, and <code>scale()</code> control movement, rotation, and size.</li>
+    <li><code>save()</code> and <code>restore()</code> help manage transformation states.</li>
+  </ul>
+
+  <h2>8. Compositing Graphics</h2>
+  <ul>
+    <li><code>globalCompositeOperation</code> defines how overlapping drawings combine.</li>
+    <li>Modes include source-over, source-in, destination-over, lighter, and xor.</li>
+    <li>These modes create advanced visual effects.</li>
+  </ul>
+
+  <h2>9. Summary</h2>
+  <ul>
+    <li>Canvas provides powerful tools for drawing and styling graphics.</li>
+    <li>Developers can create interactive and visually rich applications.</li>
+    <li>Understanding transformations and compositing is essential for advanced graphics.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">Go Back to Home Page</button>
+  </div>
+
+</body>
+</html>

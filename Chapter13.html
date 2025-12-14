@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 13: Asynchronous Programming - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 13: Asynchronous Programming - Summary</h1>
+
+  <h2>1. Synchronous vs Asynchronous Processing</h2>
+  <ul>
+    <li>Synchronous processing executes tasks one by one in order.</li>
+    <li>If one task takes a long time, all other tasks must wait.</li>
+    <li>Asynchronous processing allows long tasks to run in the background.</li>
+    <li>This prevents programs from freezing or becoming unresponsive.</li>
+  </ul>
+
+  <h2>2. JavaScript and Single Thread</h2>
+  <ul>
+    <li>JavaScript is a single-threaded language.</li>
+    <li>Only one task can be executed at a time.</li>
+    <li>Asynchronous programming helps JavaScript handle time-consuming tasks efficiently.</li>
+  </ul>
+
+  <h2>3. Callback Functions</h2>
+  <ul>
+    <li>A callback is a function passed as an argument to another function.</li>
+    <li>It is executed after a task is completed.</li>
+    <li>Commonly used with functions like <code>setTimeout()</code>.</li>
+    <li>Too many nested callbacks lead to <strong>callback hell</strong>, making code hard to read.</li>
+  </ul>
+
+  <h2>4. Promises</h2>
+  <ul>
+    <li>Promises were introduced in ES6 to improve asynchronous code structure.</li>
+    <li>A promise represents a future result.</li>
+    <li>Promise states:
+      <ul>
+        <li><strong>Pending</strong> – waiting</li>
+        <li><strong>Fulfilled</strong> – success</li>
+        <li><strong>Rejected</strong> – failure</li>
+      </ul>
+    </li>
+    <li>Promises use <code>then()</code>, <code>catch()</code>, and <code>finally()</code>.</li>
+  </ul>
+
+  <h2>5. Promise Chaining</h2>
+  <ul>
+    <li>Promise chaining connects multiple asynchronous tasks in order.</li>
+    <li>Each <code>then()</code> passes its result to the next step.</li>
+    <li>This avoids callback hell and improves readability.</li>
+  </ul>
+
+  <h2>6. Fetch API</h2>
+  <ul>
+    <li>The <code>fetch()</code> function is used to communicate with servers.</li>
+    <li>It replaces older methods like <code>XMLHttpRequest</code>.</li>
+    <li>Fetch returns a promise.</li>
+    <li>Often used to retrieve JSON data from APIs.</li>
+  </ul>
+
+  <h2>7. async and await</h2>
+  <ul>
+    <li><code>async</code> functions always return a promise.</li>
+    <li><code>await</code> pauses execution until a promise resolves.</li>
+    <li>This makes asynchronous code easier to read and write.</li>
+    <li>It looks similar to synchronous code but remains non-blocking.</li>
+  </ul>
+
+  <h2>8. Advantages of Asynchronous Programming</h2>
+  <ul>
+    <li>Prevents blocking during long operations.</li>
+    <li>Improves performance and user experience.</li>
+    <li>Essential for server requests, timers, and data loading.</li>
+  </ul>
+
+  <h2>9. Summary</h2>
+  <ul>
+    <li>Asynchronous programming allows JavaScript to handle multiple tasks efficiently.</li>
+    <li>Callbacks, promises, and async/await are key techniques.</li>
+    <li>Modern JavaScript relies heavily on asynchronous operations.</li>
+    <li>Understanding these concepts is essential for real-world web development.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 14: Canvas - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 14: Drawing with Canvas - Summary</h1>
+
+  <h2>1. What is Canvas?</h2>
+  <ul>
+    <li>The <code>&lt;canvas&gt;</code> element allows drawing graphics directly on a web page using JavaScript.</li>
+    <li>Canvas uses the Canvas API to draw shapes, images, and animations.</li>
+    <li>It is commonly used for games, drawing tools, and interactive visual effects.</li>
+  </ul>
+
+  <h2>2. Characteristics of Canvas</h2>
+  <ul>
+    <li>Canvas works at the pixel level, giving detailed control over graphics.</li>
+    <li>It is suitable for animations and real-time rendering.</li>
+    <li>Canvas graphics are not part of the DOM after being drawn.</li>
+  </ul>
+
+  <h2>3. Creating a Canvas</h2>
+  <ul>
+    <li>The canvas area is defined using the <code>&lt;canvas&gt;</code> tag.</li>
+    <li>Width and height should be set using attributes, not CSS.</li>
+    <li>The drawing area can be resized to fit the browser window.</li>
+  </ul>
+
+  <h2>4. Rendering Context</h2>
+  <ul>
+    <li>A canvas must use a rendering context to draw graphics.</li>
+    <li>The 2D context is created using:
+      <br><code>canvas.getContext("2d")</code>
+    </li>
+    <li>The context provides drawing methods and styles.</li>
+  </ul>
+
+  <h2>5. Coordinate System</h2>
+  <ul>
+    <li>The top-left corner of the canvas is (0, 0).</li>
+    <li>The x-axis increases to the right, and the y-axis increases downward.</li>
+    <li>Angles are measured in radians.</li>
+  </ul>
+
+  <h2>6. Drawing Shapes</h2>
+  <ul>
+    <li>Rectangles can be drawn using <code>fillRect()</code> and <code>strokeRect()</code>.</li>
+    <li>Paths are used to draw lines, triangles, and custom shapes.</li>
+    <li>Circles and arcs are drawn using the <code>arc()</code> method.</li>
+  </ul>
+
+  <h2>7. Paths and Curves</h2>
+  <ul>
+    <li>Paths are created using methods like <code>beginPath()</code> and <code>closePath()</code>.</li>
+    <li>Bézier curves allow smooth and natural curves.</li>
+    <li>The <code>Path2D</code> object allows reusing complex shapes.</li>
+  </ul>
+
+  <h2>8. Images and Clipping</h2>
+  <ul>
+    <li>Images can be drawn on canvas using <code>drawImage()</code>.</li>
+    <li>Images must load completely before being drawn.</li>
+    <li>Clipping restricts drawing to a specific shape.</li>
+  </ul>
+
+  <h2>9. Transformations</h2>
+  <ul>
+    <li>Canvas supports scaling, rotation, and translation.</li>
+    <li>Transformations affect how shapes and images are rendered.</li>
+  </ul>
+
+  <h2>10. Summary</h2>
+  <ul>
+    <li>Canvas enables powerful graphical drawing using JavaScript.</li>
+    <li>It is ideal for animations, games, and interactive graphics.</li>
+    <li>Understanding paths, shapes, images, and transformations is essential.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chapter 16: Canvas Animation - Summary</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 1.8;
+      margin: 40px;
+      background-color: #fdfdfd;
+      color: #000;
+    }
+    h1 {
+      color: #1a1a1a;
+      text-align: center;
+      text-decoration: underline;
+    }
+    h2 {
+      color: #333333;
+      margin-top: 30px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-family: monospace;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .home-button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Chapter 16: Canvas Animation - Summary</h1>
+
+  <h2>1. Drawing Shapes Using Objects</h2>
+  <ul>
+    <li>Canvas animations often use <strong>objects</strong> to represent shapes.</li>
+    <li>A constructor function is used to create reusable shapes like circles.</li>
+    <li>Each object stores properties such as position, radius, and color.</li>
+    <li>A <code>draw()</code> method renders the shape using Canvas methods.</li>
+  </ul>
+
+  <h2>2. Creating Multiple Objects</h2>
+  <ul>
+    <li>Loops are used to create many shapes efficiently.</li>
+    <li>Random values generate different positions, sizes, and colors.</li>
+    <li>Objects are stored in an array for easy management.</li>
+    <li>Reloading the page creates a new random animation layout.</li>
+  </ul>
+
+  <h2>3. Basic Animation Concept</h2>
+  <ul>
+    <li>Animation is created by updating an object’s position repeatedly.</li>
+    <li>Movement is controlled using speed values such as <code>dx</code> and <code>dy</code>.</li>
+    <li>The object is redrawn at a new position in each frame.</li>
+  </ul>
+
+  <h2>4. Using requestAnimationFrame()</h2>
+  <ul>
+    <li><code>requestAnimationFrame()</code> creates smooth animations.</li>
+    <li>It repeatedly calls a function to update and redraw the canvas.</li>
+    <li>This method is more efficient than traditional timers.</li>
+  </ul>
+
+  <h2>5. Clearing and Redrawing the Canvas</h2>
+  <ul>
+    <li>The canvas must be cleared before drawing each new frame.</li>
+    <li><code>clearRect()</code> removes previous drawings.</li>
+    <li>This prevents visual overlap and creates smooth motion.</li>
+  </ul>
+
+  <h2>6. Bouncing Animation</h2>
+  <ul>
+    <li>Collision detection checks if an object hits the canvas edges.</li>
+    <li>When an edge is reached, the direction is reversed.</li>
+    <li>This creates a bouncing effect.</li>
+  </ul>
+
+  <h2>7. Animating Multiple Objects</h2>
+  <ul>
+    <li>Each object has its own movement and animation logic.</li>
+    <li>All objects are animated inside a loop.</li>
+    <li>Multiple objects move independently at the same time.</li>
+  </ul>
+
+  <h2>8. Summary</h2>
+  <ul>
+    <li>Canvas animation is based on updating positions and redrawing frames.</li>
+    <li><code>requestAnimationFrame()</code> is essential for smooth animation.</li>
+    <li>Objects and arrays make animations scalable and organized.</li>
+    <li>These techniques are used in games and interactive graphics.</li>
+  </ul>
+
+  <div class="button-container">
+    <button class="home-button" onclick="window.location.href='index.html'">
+      Go Back to Home Page
+    </button>
+  </div>
+
+</body>
+</html>
